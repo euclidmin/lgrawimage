@@ -33,17 +33,17 @@ partition1_material_start_offset_byte = partition1_material_start_offset.to_byte
 # rootfs
 partition2_start_offset = 0x4800200
 partition2_start_offset_byte = partition2_start_offset.to_bytes(8, byteorder='little', signed=True)
-partition2_size = 0x84000000
+partition2_size = 0x7F000000
 partition2_size_byte = partition2_size.to_bytes(8, byteorder='little', signed=True)
 partition2_material_start_offset = 0x4800000
 partition2_material_start_offset_byte = partition2_material_start_offset.to_bytes(8, byteorder='little', signed=True)
 
 # backup
-partition3_start_offset = 0x88800200
+partition3_start_offset = 0x83800200
 partition3_start_offset_byte = partition3_start_offset.to_bytes(8, byteorder='little', signed=True)
-partition3_size = 0x20000000
+partition3_size = 0x40000000
 partition3_size_byte = partition3_size.to_bytes(8, byteorder='little', signed=True)
-partition3_material_start_offset = 0x88800000
+partition3_material_start_offset = 0x83800000
 partition3_material_start_offset_byte = partition3_material_start_offset.to_bytes(8, byteorder='little', signed=True)
 
 
@@ -76,7 +76,8 @@ lgimg_file.write(partition3_material_start_offset_byte)
 lgimg_file.write(dummy_8bytes)
 lgimg_file.write(dummy_368bytes)
 
-with open("D:\Ergo\imx-image-ergo-imx8mp-lpddr4-evk-v0.1.9-07181421.wic\imx-image-ergo-imx8mp-lpddr4-evk-v0.1.9-07181421.wic", "rb") as binary_file:
+# with open("D:\Ergo\imx-image-ergo-imx8mp-lpddr4-evk-v0.1.9-07181421.wic\imx-image-ergo-imx8mp-lpddr4-evk-v0.1.9-07181421.wic", "rb") as binary_file:
+with open("/home/systemsw/work1/imx-yocto-ergo/build-ergo/tmp/deploy/images/imx8mp-lpddr4-evk/data", "rb") as binary_file:
     # Read the whole file at once
     data = binary_file.read()
     lgimg_file.write(data)

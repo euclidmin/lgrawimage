@@ -1,2 +1,2 @@
 # lgrawimage
-make LG RAW IMAGE format 
+LG RAW IMAGE maker by yongmin.ko@lge.com
