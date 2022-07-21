@@ -10,6 +10,7 @@ print(partition_count_byte)
 
 dummy_3bytes = b'\x00\x00\x00'
 dummy_8bytes = b'\x00\x00\x00\x00\x00\x00\x00\x00'
+dummy_368bytes = dummy_8bytes * 46 # 8 X 46 = 368bytes
 boot_area_use = 1
 boot_area_use_byte = boot_area_use.to_bytes(1, byteorder='little', signed=True)
 
@@ -73,5 +74,12 @@ lgimg_file.write(partition3_start_offset_byte)
 lgimg_file.write(partition3_size_byte)
 lgimg_file.write(partition3_material_start_offset_byte)
 lgimg_file.write(dummy_8bytes)
+lgimg_file.write(dummy_368bytes)
+
+with open("D:\Ergo\imx-image-ergo-imx8mp-lpddr4-evk-v0.1.9-07181421.wic\imx-image-ergo-imx8mp-lpddr4-evk-v0.1.9-07181421.wic", "rb") as binary_file:
+    # Read the whole file at once
+    data = binary_file.read()
+    lgimg_file.write(data)
+    binary_file.close()
 
 lgimg_file.close()
