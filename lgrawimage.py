@@ -1,10 +1,10 @@
 
 lgrawimg_ascii = bytearray("LGRAWIMG".encode('ascii'))
 
-print(type(lgrawimg_ascii))
-print(lgrawimg_ascii)
+# print(type(lgrawimg_ascii))
+# print(lgrawimg_ascii)
 
-partition_count = 2
+partition_count = 4
 partition_count_byte = partition_count.to_bytes(1, byteorder='little', signed=True)
 print(partition_count_byte)
 
